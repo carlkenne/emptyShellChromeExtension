@@ -1,0 +1,32 @@
+{
+	"name": "Empty shell",
+	"version": "0.2",
+	"manifest_version" : 2,
+	"description": "fill this with value",
+	"background" : {
+		"page" : "background.html"
+	},
+	"page_action" :
+	{
+		"default_icon": {
+			"19": "icons/19.png",
+			"38": "icons/38.png"
+		},
+		"default_title" : "Empty shell",
+		"default_popup" : "fragments/main/popup.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["lib/jquery-2.1.1.min.js","shell/injectScript.js","shell/main.js"],
+			"run_at": "document_idle"
+		}
+	],
+	"icons": {
+		"16": "icons/16.png",
+		"48": "icons/48.png",
+		"128": "icons/128.png"
+	},
+	"options_page" : "fancy-settings/source/index.html",
+	"content_security_policy": "script-src 'self'; object-src 'self';"
+}
